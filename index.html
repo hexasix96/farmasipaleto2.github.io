@@ -166,13 +166,16 @@
 
     // waktu dipastikan GMT+7 (Asia/Jakarta)
     const now = new Date();
-    const offset = 7 * 60;
-    const jakarta = new Date(now.getTime() + offset * 60 * 1000);
-    const tanggal = jakarta.toLocaleDateString('id-ID');
-    const jam = jakarta.toLocaleTimeString('id-ID', {
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit'
+
+const tanggal = now.toLocaleDateString('id-ID', {
+  timeZone: 'Asia/Jakarta'
+});
+
+const jam = now.toLocaleTimeString('id-ID', {
+  timeZone: 'Asia/Jakarta',
+  hour: '2-digit',
+  minute: '2-digit',
+  second: '2-digit'
     });
 
     // Catat transaksi ke log penjualan
